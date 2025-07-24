@@ -3,20 +3,20 @@
 El proyecto está desarrollado principalmente en node.js. Para clonar el proyecto y correrlo en su máquina local siga los siguientes pasos:
 
 
-sh
-# Paso 1: Clona el repositorio usando la URL del proyecto en Git.
-git clone https://github.com/Granjis/marketplace-voice-agent.git
 
-# Paso 2: Navega al directorio del proyecto.
-cd marketplace-voice-agent
-
-# Paso 3: Instala las dependencias necesarias.
-npm i
-
-#Paso 4: En el archivo useVoiceAgent.ts, asegurese de poner su API key de Google en el constructor 
-
-# Paso 5: Inicia el servidor de desarrollo.
-npm run dev
+    Paso 1: Clona el repositorio usando la URL del proyecto en Git.
+   git clone https://github.com/Granjis/marketplace-voice-agent.git
+   
+    Paso 2: Navega al directorio del proyecto.
+   cd marketplace-voice-agent
+   
+    Paso 3: Instala las dependencias necesarias.
+   npm i
+   
+    Paso 4: En el archivo useVoiceAgent.ts, asegurese de poner su API key de Google en el constructor 
+   
+    Paso 5: Inicia el servidor de desarrollo.
+   npm run dev
 
 
 
@@ -40,13 +40,10 @@ Debido a la falta de tiempo hay algunos elementos que no funcionan perfectamente
 #### Hook VoiceAgent y Clase GdmLiveAudio(Se encuentra en el archivo useVoiceAgent.ts.)
 El agente esta disponible en todas las vistas de la aplicación. Voice Agent se encarga de renderizar el boton que esta conectado a la lógica de la clase GdmLiveAudio. Está clase se encarga de todos los procesos del agente, conecta con el API Live, establece el envió de información bidireccional por medio del  webSocket, comienza o para la grabación de audio por parte del usuario, y reproduce las respuestas del modelo. También, aunque no muy eficientemente, carga la información de los productos para incorporarlos como contexto al modelo.
 
-<img width="320" height="151" alt="Screenshot 2025-07-20 at 2 01 07 AM" src="https://github.com/user-attachments/assets/864f73f5-4c84-4c3a-9675-f08190668da7" />
-
 
 ### *SupaBase*
 SupaBase ofrece el servicio de base de datos relacional. Existen 4 tablas: 
  
-<img width="1006" height="247" alt="Screenshot 2025-07-20 at 1 16 17 AM" src="https://github.com/user-attachments/assets/121c1384-7adc-4a11-85f6-d4a02335b263" />
 
 - La tabla cart corresponde al carrito de compras, cada usuario tiene asociado un carro, y su carro puede tener ninguno o multiples productos.
 - El usuario puede ser de rol Admin y rol User. Admin tiene acceso al dashboard que presenta las estadisticas de los productos del MarketPlace. 
