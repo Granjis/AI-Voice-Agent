@@ -5,7 +5,7 @@ El proyecto está desarrollado principalmente en node.js. Para clonar el proyect
 
 
     Paso 1: Clona el repositorio usando la URL del proyecto en Git.
-   git clone https://github.com/Granjis/marketplace-voice-agent.git
+   git clone https://github.com/Granjis/AI-Voice-Agent.git
    
     Paso 2: Navega al directorio del proyecto.
    cd marketplace-voice-agent
