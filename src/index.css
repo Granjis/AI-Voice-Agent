@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic marketplace design system */
+@layer base {
+  :root {
+    /* Clean grey/white color palette */
+    --background: 0 0% 98%;
+    --foreground: 210 10% 23%;
+
+    --card: 0 0% 96%;
+    --card-foreground: 210 10% 23%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 10% 23%;
+
+    --primary: 210 11% 15%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 210 7% 56%;
+    --secondary-foreground: 0 0% 98%;
+
+    --accent: 210 6% 83%;
+    --accent-foreground: 210 10% 23%;
+
+    --muted: 210 7% 95%;
+    --muted-foreground: 210 6% 46%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 210 11% 15%;
+
+    --radius: 0.75rem;
+
+    /* Clean grey gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 11% 15%), hsl(210 7% 56%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210 7% 95%), hsl(0 0% 100%));
+    --gradient-accent: linear-gradient(135deg, hsl(210 6% 83%), hsl(210 7% 95%));
+    --gradient-glow: radial-gradient(circle, hsl(210 11% 71% / 0.3), transparent 70%);
+    
+    /* Animations */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+
+    /* Typography */
+    --font-primary: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 13% 11%;
+    --foreground: 210 11% 96%;
+
+    --card: 217 19% 12%;
+    --card-foreground: 210 11% 96%;
+
+    --popover: 217 19% 12%;
+    --popover-foreground: 210 11% 96%;
+
+    --primary: 210 11% 71%;
+    --primary-foreground: 222 13% 11%;
+
+    --secondary: 217 19% 27%;
+    --secondary-foreground: 210 11% 96%;
+
+    --muted: 217 19% 18%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 215 16% 47%;
+    --accent-foreground: 210 11% 96%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 11% 96%;
+
+    --border: 217 19% 18%;
+    --input: 217 19% 18%;
+    --ring: 210 11% 71%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-primary;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+}
+
+@layer components {
+  /* Futuristic UI components */
+  .glow-effect {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+  
+  .gradient-border {
+    position: relative;
+    background: var(--gradient-primary);
+    border-radius: var(--radius);
+    padding: 1px;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: hsl(var(--card));
+    border-radius: calc(var(--radius) - 1px);
+  }
+  
+  .neon-card {
+    @apply relative bg-card/50 backdrop-blur-md border border-primary/20;
+    background: linear-gradient(135deg, hsl(var(--card) / 0.8), hsl(var(--card) / 0.4));
+    box-shadow: 
+      0 0 20px hsl(var(--primary) / 0.1),
+      inset 0 1px 0 hsl(var(--primary) / 0.2);
+  }
+  
+  .neon-card:hover {
+    @apply border-primary/40;
+    box-shadow: 
+      0 0 30px hsl(var(--primary) / 0.2),
+      inset 0 1px 0 hsl(var(--primary) / 0.3);
+  }
+  
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    100% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+  }
+  
+  .voice-active {
+    animation: voice-pulse 1s ease-in-out infinite;
+  }
+  
+  @keyframes voice-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+  }
+}
